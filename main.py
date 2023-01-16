@@ -2,11 +2,15 @@ import pprint
 import time
 from datasets import load_dataset
 
+# Downloads the PET-dataset on first run, later loads PET-dataset from cache
 pet = load_dataset("patriziobellan/PET", name='relations-extraction').get('test')
+# Time buffer for download
 time.sleep(3)
 
+# Asks wich dataset to analyse (Can also be changed in the script)
 set_id = int(input("Type the ID of the dataset/sentence u want to use: "))
 
+# Tokens are a list of all the words in the process description
 tokens = pet['tokens'][set_id]
 
 components = []
